@@ -1,2 +1,4 @@
 site
+.devenv/*
 .devenv.flake.nix
+__pycache__

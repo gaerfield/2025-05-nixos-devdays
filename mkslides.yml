@@ -9,10 +9,13 @@ slides:
   separator: ^\s*---\s*$
   separator_vertical: ^\s*-v-\s*$
   separator_notes: "^Notes?:"
+  preprocess_script: include_preprocessor.py
 revealjs:
   height: 1080
   width: 1920
   transition: fade
+  history: true
+  slideNumber: false
 plugins:
   #- name: RevealMermaid
   #  extra_javascript:
