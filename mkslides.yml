@@ -4,8 +4,8 @@ index:
   #theme: https://hogenttin.github.io/cdn/styles/reveal-js/index.css
 slides:
   #favicon: https://hogenttin.github.io/cdn/favicon/favicon.ico
-  theme: solarized
-  highlight_theme: https://raw.githubusercontent.com/highlightjs/highlight.js/refs/heads/main/src/styles/base16/solarized-light.css
+  theme: moon
+  # highlight_theme: https://raw.githubusercontent.com/highlightjs/highlight.js/refs/heads/main/src/styles/base16/solarized-light.css
   separator: ^\s*---\s*$
   separator_vertical: ^\s*-v-\s*$
   separator_notes: "^Notes?:"

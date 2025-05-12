@@ -1,68 +1,61 @@
+<style>
+div.multicolumn {
+    /* https://stackoverflow.com/a/44392145 */
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 5vw;
+    margin-bottom: var(--content-padding-bottom);
+}
+</style>
+
 # NixOS
 
-{{slides/1_me.md}}
-{{slides/2_nixos_high_level.md}}
+{{slides/0_me.md}}
+
+Note:
+
+Nutze NixOS seit ca. 18 Monaten
+teile hier meine Erfahrung aus dieser Zeit
 
 ---
 
-# What is NixOS?
+1. Grundidee
+2. Flakes
+3. Theorie
+4. Addons
 
-Let's head to [nixos.org](https://nixos.org)
-<iframe src="https://nixos.org" width="1500" height="550" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe> 
-
--v-
-
-# Wha ... ?
-
-* NixOS
-* Nix package manager
-* Nix expression language
-
--v-
-
-Nix* related docs are crap
 
 ---
 
-# What is NixOS?
 
-An operating system featuring:
-* atomic upgrades
-* rollbacks <!-- .element: class="fragment" -->
-* a fully declarative configuration model <!-- .element: class="fragment" -->
-
--v-
-
-* declaritive configuration brought me to nixos ... my dotfiles where somewhat broken
-    * reproducible OS states
-    * identical configuration across multiple machines
-
--v-
-
-* what I got additionally
-    * atomic upgrades = either an upgrade works or fails completely, no partial upgrades
-    * if misconfigured something, I can rollback to any state in history
-    * reproducible operating system
-
--v-
-
-* how does it work? - configuration.nix
-
--v-
-
-* /nix/store
-
--v-
-
-* but the user directory is still broken: home-manager
+{{slides/1_grundidee.md}}
 
 ---
 
-# things I want to cover
+{{slides/2_flakes.md}}
 
-* the basics rergarding nix store
-* the relation to the doctor thesis
-* flakes
-* nixos-anywhere
-* things I want to link
-  * 
+---
+
+
+{{slides/3_science.md}}
+
+---
+
+{{slides/4_hm.md}}
+
+---
+
+{{slides/5_impermanence.md}}
+
+---
+
+{{slides/6_anywhere.md}}
+ 
+---
+
+{{slides/7_lanzaboote.md}}
+
+---
+
+{{slides/a_links.md}}
