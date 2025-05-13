@@ -148,6 +148,35 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 -v-
 
+* `nix flake lock` erstellt das Lockfile `flack.lock`
+* `nix flake update` aktualisiert das Lockfile
+
+```
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1745234285,
+        "narHash": "sha256-GfpyMzxwkfgRVN0cTGQSkTC0OHhEkv3Jf6Tcjm//qZ0=",
+        "owner": "NixOs",
+        "repo": "nixpkgs",
+        "rev": "c11863f1e964833214b767f4a369c6e6a7aba141",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOs",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+  "root": "root",
+  "version": 7
+}
+```
+
+-v-
+
 `sudo nixos-rebuild --flake` ausführen
 
 Note:
@@ -158,3 +187,35 @@ Note:
   * falls git-repo und alle files geadded = alles ok
   * falls git-repo und file nicht geadded = nix IGNORIERT DAS FILE KOMPLETT
 * [nix flakes explained](https://www.youtube.com/watch?v=JCeYq72Sko0)
+
+-v-
+
+* development environments mit `.envrc` und flakes:
+
+``` [3, 210-217]
+{
+  description = "Minimal example of building Kotlin with Gradle and Nix";
+  inputs = { nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable"; };
+  inputs.systems.url = "github:nix-systems/default";
+
+  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.flake-utils.inputs.systems.follows = "systems";
+
+  outputs = { self, systems, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+        updateLocks = pkgs.callPackage ./update-locks.nix { };
+      in {
+        devShells.default = pkgs.mkShell {
+          buildInputs = [
+            pkgs.gradle_8
+            pkgs.temurin-bin-21
+            updateLocks
+            pkgs.ktlint
+          ];
+        };
+        packages.default = pkgs.callPackage ./build.nix { };
+      });
+}
+```
