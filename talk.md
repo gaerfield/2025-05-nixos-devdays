@@ -11,6 +11,8 @@ div.multicolumn {
 
 # NixOS
 
+https://gaerfield.github.io/2025-05-nixos-devdays
+
 <img src="./img/qr-code.png" class="r-stretch" />
 
 {{slides/0_me.md}}
