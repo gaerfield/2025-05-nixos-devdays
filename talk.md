@@ -11,6 +11,8 @@ div.multicolumn {
 
 # NixOS
 
+<img src="./img/qr-code.png" class="r-stretch" />
+
 {{slides/0_me.md}}
 
 Note:
